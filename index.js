@@ -66,7 +66,7 @@ app.listen(PORT,() => {
 
 
 
-  app.post('/contacto', (req, res) =>{
+ /* app.post('/contacto', (req, res) =>{
     const nombre = req.body.nombre;
       const apellido = req.body.apellido;
       const telefono = req.body.telefono;
@@ -137,7 +137,7 @@ const conexion = mysql2.createConnection({
   
 });
 
-
+*/
 conexion.connect((error) => {
 
   if(error){
