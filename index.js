@@ -34,11 +34,24 @@ app.listen(PORT,() => {
   hbs.registerPartials(path.join(__dirname,`views/partials`)); 
 
 
-
-
-
-
-
+ /* const conexion = mysql2.createConnection({
+    host:process.env.HOST,
+    user:process.env.USER,
+    password:process.env.PASSWORD,
+    database:process.env.DATABASE,
+    port:process.env.DBPORT
+    
+  });
+  
+  
+  conexion.connect((error) => {
+  
+    if(error){
+      console.log(`el error: ${error}`);
+    }else{ 
+      console.log(`conectado correctamente a la base de datos`); 
+  }
+  }); */
 
 
   
@@ -47,19 +60,19 @@ app.listen(PORT,() => {
     res.render('index', {
         titulo: 'Home'
     })
-});
+})
 
    app.get('/contacto', (req, res) => {
    res.render('contacto', {
    titulo: 'Contacto'
    })
-});
+})
 
    app.get('/youtube', (req, res) => {
    res.render('youtube', {
    titulo: 'Youtube'
    })
-});
+})
 
 
 
@@ -67,7 +80,7 @@ app.listen(PORT,() => {
 
 
   app.post('/contacto', (req, res) =>{
-    const nombre = req.body.nombre;
+    /*const nombre = req.body.nombre;
       const apellido = req.body.apellido;
       const telefono = req.body.telefono;
       const email = req.body.email;
@@ -85,8 +98,11 @@ app.listen(PORT,() => {
                   user: process.env.EMAIL,
                   pass: process.env.EMAILPASSWORD
               }
+        */ res.json({
+            probando: ` deploy sin la base de datos`
+        })
+        });/*
          
-          });
   
          
           let info = await transporter.sendMail({
@@ -116,9 +132,9 @@ app.listen(PORT,() => {
               res.render('enviado')
           })
   
-  })
+  })*/
   
-
+ 
 
 
 
@@ -128,24 +144,6 @@ app.listen(PORT,() => {
 
 
 
-const conexion = mysql2.createConnection({
-  host:process.env.HOST,
-  user:process.env.USER,
-  password:process.env.PASSWORD,
-  database:process.env.DATABASE,
-  port:process.env.DBPORT
-  
-});
-
-
-conexion.connect((error) => {
-
-  if(error){
-    console.log(`el error: ${error}`);
-  }else{ 
-    console.log(`conectado correctamente a la base de datos`); 
-}
-}); 
 
 
 
