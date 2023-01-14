@@ -31,7 +31,7 @@ app.listen(PORT,() => {
   hbs.registerPartials(path.join(__dirname,`views/partials`)); 
 
 
- /* const conexion = mysql2.createConnection({
+  const conexion = mysql2.createConnection({
     host:process.env.HOST,
     user:process.env.USER,
     password:process.env.PASSWORD,
@@ -48,7 +48,7 @@ app.listen(PORT,() => {
     }else{ 
       console.log(`conectado correctamente a la base de datos`); 
   }
-  }); */
+  }); 
 
 
   
@@ -77,7 +77,7 @@ app.listen(PORT,() => {
 
 
   app.post('/contacto', (req, res) =>{
-    /*const nombre = req.body.nombre;
+      const nombre = req.body.nombre;
       const apellido = req.body.apellido;
       const telefono = req.body.telefono;
       const email = req.body.email;
@@ -95,10 +95,10 @@ app.listen(PORT,() => {
                   user: process.env.EMAIL,
                   pass: process.env.EMAILPASSWORD
               }
-        */ res.json({
+         /*res.json({
             probando: ` deploy sin la base de datos`
-        })
-        });/*
+        })*/
+        });
          
   
          
@@ -129,9 +129,10 @@ app.listen(PORT,() => {
               res.render('enviado')
           })
   
-  })*/
+  })
   
- 
+
+
 
 
 
