@@ -1,7 +1,6 @@
 const express = require('express');
-const mysql = require('mysql');
-const mysql2 = require('mysql2');
 const app = express();
+const mysql2 = require('mysql2');
 const hbs = require (`hbs`);
 const path = require (`path`);
 const nodemailer = require (`nodemailer`);
@@ -16,8 +15,6 @@ console.log({PORT})
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname,`public`)));
-
-
 
 app.listen(PORT,() => {
     console.log(`Servidor conectado en el puerto : ${PORT}`)
@@ -64,13 +61,13 @@ app.listen(PORT,() => {
 
    app.get('/contacto', (req, res) => {
    res.render('contacto', {
-   titulo: 'Contacto'
+   titulo: 'contacto'
    })
 })
 
    app.get('/youtube', (req, res) => {
    res.render('youtube', {
-   titulo: 'Youtube'
+   titulo: 'youtube'
    })
 })
 
