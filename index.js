@@ -47,26 +47,26 @@ app.listen(PORT,() => {
     res.render('index', {
         titulo: 'Home'
     })
-})
+});
 
    app.get('/contacto', (req, res) => {
    res.render('contacto', {
    titulo: 'Contacto'
    })
-})
+});
 
    app.get('/youtube', (req, res) => {
    res.render('youtube', {
    titulo: 'Youtube'
    })
-})
+});
 
 
 
 
 
 
- /* app.post('/contacto', (req, res) =>{
+  app.post('/contacto', (req, res) =>{
     const nombre = req.body.nombre;
       const apellido = req.body.apellido;
       const telefono = req.body.telefono;
@@ -137,7 +137,7 @@ const conexion = mysql2.createConnection({
   
 });
 
-*/
+
 conexion.connect((error) => {
 
   if(error){
