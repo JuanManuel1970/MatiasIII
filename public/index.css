@@ -390,8 +390,32 @@ margin-top: -80px;
 
 
 
-  
+  .return{
+    height: 100vh;
+    background-color: #000000;
+  color: white;
+background-image: url(./imagenes/fender.jpg);
+background-size:cover;
 
+}
+.return h1{display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: #06eb65;
+margin-top: -35px;}
+
+.return .boton1{
+  color: rgb(0, 0, 0);
+  display: inline-block;
+  background-color: #3a56f4;
+  text-align:right;
+  width: 95px;
+border-radius: 100px;
+margin-left: 45%;
+margin-bottom: 900px;
+box-shadow: 0 5px 7px rgb(3, 240, 244);
+transition: .5s;}
 
 
 
