@@ -105,8 +105,8 @@ app.listen(PORT,() => {
           let info = await transporter.sendMail({
               from: process.env.EMAIL,
               to: `${email}`,
-              subject: "Gracias por contactarme!!!",
-              html:`Muchas gracias por visitar mi página <br>
+              subject: "Gracias por visitar mi pagina!!!",
+              html:` <br>
               Me pondre en contacto con vos , lo antes posible ...Saludos!!! <br>`
           })
       }
