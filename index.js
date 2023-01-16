@@ -86,8 +86,7 @@ app.listen(PORT,() => {
   
       
       async function envioMail(){
-          //Configuramos la cuenta del envío
-          let transporter = nodemailer.createTransport({
+      let transporter = nodemailer.createTransport({
               host: 'smtp.gmail.com',
               port: 465,
               secure: true,
@@ -95,19 +94,17 @@ app.listen(PORT,() => {
                   user: process.env.EMAIL,
                   pass: process.env.EMAILPASSWORD
               }
-         /*res.json({
-            probando: ` deploy sin la base de datos`
-        })*/
+       
         });
          
   
          
-          let info = await transporter.sendMail({
-              from: process.env.EMAIL,
-              to: `${email}`,
-              subject: "Gracias por visitar mi pagina!!!",
-              html:` <br>
-              Me pondre en contacto con vos , lo antes posible ...Saludos!!! <br>`
+        let info = await transporter.sendMail({
+          from: process.env.EMAIL,
+          to: `${email}`,
+          subject: "Gracias por contactarme!!!",
+          html:`Muchas gracias por visitar mi página <br>
+          Me pondre en contacto con vos , lo antes posible ...Saludos!!! <br>`
           })
       }
   
@@ -124,7 +121,7 @@ app.listen(PORT,() => {
       conexion.query(sql, datos, function(err){
           if (err) throw err;
               console.log(`Se ha registrado un ingreso de datos`);
-              //Email
+         
               envioMail().catch(console.error);
               res.render('enviado')
           })
