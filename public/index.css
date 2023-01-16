@@ -399,15 +399,10 @@ background-image: url(./imagenes/fender.jpg);
 background-size:cover;
 
 }
-.return h1{display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-color: #06eb65;
-margin-top: -35px;}
+.return .m-5{
 
-.boton1{height: 50px;width: 150px;color: #06eb65;background-color: #0037ff;margin-left: 150px;
 }
+
 
 /*movimiento letras "maquina de escribir*/
 @keyframes typing{ from {width: 0} ;}
