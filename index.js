@@ -93,12 +93,13 @@ app.listen(PORT,() => {
               auth: {
                   user: process.env.EMAIL,
                   pass: process.env.EMAILPASSWORD
-              }
-       
-        });
-         
-  
-         
+                }
+                
+              });
+              
+              
+            
+              
         let info = await transporter.sendMail({
           from: process.env.EMAIL,
           to: `${email}`,
@@ -119,7 +120,7 @@ app.listen(PORT,() => {
       let sql = "INSERT INTO contactos set ?";
   
       conexion.query(sql, datos, function(err){
-          if (err) throw err;
+          if(err) throw err;
               console.log(`Se ha registrado un ingreso de datos`);
          
               envioMail().catch(console.error);
@@ -128,6 +129,9 @@ app.listen(PORT,() => {
   
   })
   
+
+
+
 
 
 
