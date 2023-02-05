@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const mysql2 = require('mysql2');
 const hbs = require (`hbs`);
-const path = require (`path`);
 const nodemailer = require (`nodemailer`);
+const { Console } = require("console");
+const path = require (`path`);
 const { application } = require("express");
 require(`dotenv`).config();
 
