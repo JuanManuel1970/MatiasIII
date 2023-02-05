@@ -7,18 +7,15 @@ const nodemailer = require (`nodemailer`);
 const { application } = require("express");
 require(`dotenv`).config();
 
-
+//configuramos el puerto
 const PORT = process.env.PORT || 9000;
 
 console.log({PORT})
-
+//Midelware. esto hace que la aplicacion entienda y se comunique con los comandos
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname,`public`)));
 
-app.listen(PORT,() => {
-    console.log(`Servidor conectado en el puerto : ${PORT}`)
-  })
 
   app.set(`view engine`,`hbs`);
 
@@ -30,13 +27,13 @@ app.listen(PORT,() => {
   
   hbs.registerPartials(path.join(__dirname,`views/partials`)); 
 
-
+//conexion de la base de datos
   const conexion = mysql2.createConnection({
-    host:process.env.HOST,
-    user:process.env.USER,
-    password:process.env.PASSWORD,
-    database:process.env.DATABASE,
-    port:process.env.DBPORT
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
+    port: process.env.DBPORT
     
   });
   
@@ -51,7 +48,7 @@ app.listen(PORT,() => {
   }); 
 
 
-  
+  //rutas de la app
  
   app.get('/', (req, res) => {
     res.render('index', {
@@ -75,8 +72,8 @@ app.listen(PORT,() => {
 
 
 
-
-  app.post('/contacto', (req, res) =>{
+//creación de post de datos de clientes y envio de email
+  app.post('/contacto', (req, res) => {
       const nombre = req.body.nombre;
       const apellido = req.body.apellido;
       const telefono = req.body.telefono;
@@ -84,8 +81,9 @@ app.listen(PORT,() => {
       const mensaje = req.body.mensaje;
   
   
-      
+       //creamos una funcion para enviar Email al cliente
       async function envioMail(){
+        //configuramos la cuenta del envio
       let transporter = nodemailer.createTransport({
               host: 'smtp.gmail.com',
               port: 465,
@@ -99,7 +97,7 @@ app.listen(PORT,() => {
               
               
             
-              
+           //Envio del mail    
         let info = await transporter.sendMail({
           from: process.env.EMAIL,
           to: `${email}`,
@@ -122,15 +120,18 @@ app.listen(PORT,() => {
       conexion.query(sql, datos, function(err){
           if(err) throw err;
               console.log(`Se ha registrado un ingreso de datos`);
-         
+          //Email
               envioMail().catch(console.error);
               res.render('enviado')
           })
   
   })
-  
+  //servidor a la escucha de las peticiones
 
 
+  app.listen(PORT,() => {
+    console.log(`Servidor conectado en el puerto : ${PORT}`)
+  })
 
 
 
