@@ -102,6 +102,7 @@ app.use(express.static(path.join(__dirname,`public`)));
         let info = await transporter.sendMail({
           from: process.env.EMAIL,
           to: `${email}`,
+          cc:`juanma26@gmail.com`,
           subject: "Gracias por contactarme!!!",
           html:`Muchas gracias por visitar mi página <br>
           Me pondre en contacto con vos , lo antes posible ...Saludos!!! <br>`
