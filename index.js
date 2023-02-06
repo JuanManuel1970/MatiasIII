@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname,`public`)));
 
   app.set(`views`, path.join(__dirname,`views`));
   
-  
+  //configuracion los partial de los motores de las plantillas
   
   hbs.registerPartials(path.join(__dirname,`views/partials`)); 
 
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname,`public`)));
     database: process.env.DATABASE,
     port: process.env.DBPORT
     
-  });
+  })
   
   
   conexion.connect((error) => {
@@ -92,11 +92,11 @@ app.use(express.static(path.join(__dirname,`public`)));
               auth: {
                   user: process.env.EMAIL,
                   pass: process.env.EMAILPASSWORD
-                }
-                
+                },
+                tls: {rejectUnauthorized: false}
               });
               
-              
+                            
             
            //Envio del mail    
         let info = await transporter.sendMail({
